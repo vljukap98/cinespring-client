@@ -10,6 +10,7 @@ import { FooterComponent } from './footer/footer.component';
 import { LoginComponent } from './auth/login/login.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ProfileComponent } from './profile/profile.component';
+import { MovieComponent } from './movie/movie/movie.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { ProfileComponent } from './profile/profile.component';
     HomeComponent,
     FooterComponent,
     LoginComponent,
-    ProfileComponent
+    ProfileComponent,
+    MovieComponent
   ],
   imports: [
     BrowserModule,

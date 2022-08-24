@@ -1,1 +1,6 @@
-<p>home works!</p>
+<div *ngIf="dataReady">
+    <div *ngFor="let m of movies">
+        <!-- <p>{{ m.title }}</p> -->
+        <img src="{{poster_base_url + m.poster_path}}" alt="">
+    </div>
+</div>
