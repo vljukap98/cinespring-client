@@ -1,0 +1,11 @@
+.movie-details {
+    color: white;
+    margin-top: 4rem;
+}
+
+.banner img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}

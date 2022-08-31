@@ -1,16 +1,18 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
-
+import { MatSliderModule } from '@angular/material/slider';
 import { AppRoutingModule } from './app-routing.module';
+import { ReactiveFormsModule } from '@angular/forms';
+
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { HomeComponent } from './home/home.component';
 import { FooterComponent } from './footer/footer.component';
 import { LoginComponent } from './auth/login/login.component';
-import { ReactiveFormsModule } from '@angular/forms';
 import { ProfileComponent } from './profile/profile.component';
 import { MovieComponent } from './movie/movie/movie.component';
+import { MovieDetailsComponent } from './movie/movie-details/movie-details.component';
 
 @NgModule({
   declarations: [
@@ -20,13 +22,15 @@ import { MovieComponent } from './movie/movie/movie.component';
     FooterComponent,
     LoginComponent,
     ProfileComponent,
-    MovieComponent
+    MovieComponent,
+    MovieDetailsComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    MatSliderModule
   ],
   providers: [],
   bootstrap: [AppComponent]

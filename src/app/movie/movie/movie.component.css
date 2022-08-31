@@ -1,0 +1,8 @@
+ .movie-component {
+    margin: 1rem;
+    border: 1px solid #58110E;
+}
+
+.movie-component:hover {
+    border: 1px solid #a8433e;
+}

@@ -1,0 +1,25 @@
+* {
+    display: flex;
+    background-color: #58110E;
+    text-decoration: none;
+    color: white;
+    justify-content: center;
+    align-items: center;
+}
+
+.header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 60px;
+}
+
+.header-item {
+    padding: 1rem;
+}
+
+.header-item:hover {
+    border-top: solid 5px #a8433e;
+}
+
+

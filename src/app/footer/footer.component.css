@@ -1,0 +1,16 @@
+* {
+    display: flex;
+    background-color: #58110E;
+    text-decoration: none;
+    color: white;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+}
+
+/* .footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 50px;
+} */

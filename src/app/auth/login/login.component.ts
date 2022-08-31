@@ -9,7 +9,8 @@ import { AuthService } from '../auth.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-
+  usernameEmpty: boolean = false;
+  passwordEmpty: boolean = false;
   loginForm: FormGroup;
 
   constructor(private authService: AuthService, private router: Router) { }
@@ -28,10 +29,15 @@ export class LoginComponent implements OnInit {
     this.authService.login(username, password).subscribe(data => {
       if(data) {
         this.router.navigateByUrl('/');
-      } else {
-        alert("Wrong credentials!");
       }
-    });
+    },
+    (error) => {
+      if(error.error.message == undefined)
+        alert("Server error")
+      else 
+        alert(error.error.message);
+    }
+    );
   }
 
 }

@@ -1,0 +1,17 @@
+.login {
+    color: white;
+    display: grid;
+    grid-template-columns: auto ;
+    padding-top: 5rem;
+}
+
+.form-item {
+    grid-column-start: 2;
+    grid-column-end: five;
+    grid-row-start: row1-start;
+    grid-row-end: 3;
+  }
+
+.form-item {
+    margin: 1rem;
+}

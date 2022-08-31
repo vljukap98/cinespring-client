@@ -1,15 +1,15 @@
-<div>
-    <div>
+<div class="header">
+    <div class="header-item">
         <a routerLink="/">Home</a>
     </div>
-    <div *ngIf="!isLoggedIn">
+    <div *ngIf="!isLoggedIn" class="header-item">
         <a routerLink="/login">Login</a>
     </div>
-    <div *ngIf="isLoggedIn">
+    <div *ngIf="isLoggedIn" class="header-item">
         <a routerLink="/profile">Profile</a>
     </div>
-    <div *ngIf="isLoggedIn">
-        <button (click)="logout()">Logout</button>
+    <div *ngIf="isLoggedIn" class="header-item">
+        <a (click)="logout()" routerLink="">Logout</a>
     </div>
 </div>
 

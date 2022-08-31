@@ -1,0 +1,8 @@
+.movie-list {
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding-top: 5rem;
+    width: 50%;
+}
