@@ -14,12 +14,21 @@ export class MovieService {
   getMovieById(id: number) {
     return this.http.get(
       this.resourceUrl + "/" + id,
+      {headers: {'Authorization': 'Bearer ' + this.authService.getToken()}}
     )
   }
 
   getPopularMovies(page: number) {
     return this.http.get(
-      this.resourceUrl + '/popular/' + page
+      this.resourceUrl + '/popular/' + page,
+      {headers: {'Authorization': 'Bearer ' + this.authService.getToken()}}
+    )
+  }
+
+  getRandomMovie() {
+    return this.http.get(
+      this.resourceUrl + '/random',
+      {headers: {'Authorization': 'Bearer ' + this.authService.getToken()}}
     )
   }
 }

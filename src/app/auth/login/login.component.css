@@ -1,5 +1,5 @@
 .login {
-    color: white;
+    color: lightgray;
     display: grid;
     grid-template-columns: auto ;
     padding-top: 5rem;

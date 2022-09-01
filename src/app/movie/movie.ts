@@ -7,5 +7,6 @@ export class Movie {
         public vote_average: number,
         public poster_path: string,
         public backdrop_path: string,
+        public genres,
     ) {}
 }

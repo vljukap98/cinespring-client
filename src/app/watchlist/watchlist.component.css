@@ -1,10 +1,4 @@
-.profile {
-    color: lightgray;
-    text-align: center;
-    margin-top: 5rem;
-}
-
-.favorites {
+.watchlist {
     margin: auto;
     display: flex;
     flex-wrap: wrap;

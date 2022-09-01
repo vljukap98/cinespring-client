@@ -36,8 +36,7 @@ export class LoginComponent implements OnInit {
         alert("Server error")
       else 
         alert(error.error.message);
-    }
-    );
+    });
   }
 
 }

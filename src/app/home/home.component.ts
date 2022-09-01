@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../auth/auth.service';
 import { Movie } from '../movie/movie';
 import { MovieService } from '../movie/movie.service';
 
@@ -8,23 +9,25 @@ import { MovieService } from '../movie/movie.service';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  movie1;
+
+  loggedIn: boolean = false;
   movies: Movie[];
   dataReady: boolean = false;
 
-  constructor(private movieService: MovieService) { }
+  constructor(private movieService: MovieService, private authService: AuthService) { }
 
   ngOnInit(): void {
-    this.initiatePopularMovies();
+    this.authService.loggedIn.subscribe((data) => this.loggedIn = data)
+    this.loggedIn = this.authService.isLoggedIn();
+
+    if(this.loggedIn)
+      this.initiatePopularMovies();
   }
 
   initiatePopularMovies() {
     this.movieService.getPopularMovies(1).subscribe((data: any) => {
       this.movies = data.results;
       this.dataReady = true;
-    },(error) => {
-      if(error.error.message == undefined)
-        alert("Server error")
     })
   }
 }

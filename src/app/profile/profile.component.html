@@ -1,1 +1,8 @@
-<p>profile works!</p>
+<div class="profile">
+    <h2>Welcome {{ user }}</h2>
+</div>
+<div class="favorites">
+    <div *ngFor="let f of favorites">
+        <app-movie [movie]="f"></app-movie>
+    </div>
+</div>

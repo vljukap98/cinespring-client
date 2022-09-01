@@ -27,6 +27,10 @@ export class AuthService {
     }));
   }
 
+  getLoggedInUsername() {
+    return localStorage.getItem('username');
+  }
+
   getToken() {
     return localStorage.getItem('jwt');
   }

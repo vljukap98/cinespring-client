@@ -9,6 +9,15 @@
         <a routerLink="/profile">Profile</a>
     </div>
     <div *ngIf="isLoggedIn" class="header-item">
+        <a routerLink="/watched">Watched</a>
+    </div>
+    <div *ngIf="isLoggedIn" class="header-item">
+        <a routerLink="/watchlist">Watchlist</a>
+    </div>
+    <div *ngIf="isLoggedIn" class="header-item">
+        <a routerLink="/random">Random movie</a>
+    </div>
+    <div *ngIf="isLoggedIn" class="header-item">
         <a (click)="logout()" routerLink="">Logout</a>
     </div>
 </div>

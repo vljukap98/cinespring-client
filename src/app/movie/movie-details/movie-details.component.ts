@@ -47,4 +47,16 @@ export class MovieDetailsComponent implements OnInit, OnDestroy {
     });
   }
 
+  addMovieToWatchlist() {
+
+  }
+
+  addMovieAsFavorite() {
+
+  }
+
+  markMovieAsWatched() {
+    
+  }
+
 }

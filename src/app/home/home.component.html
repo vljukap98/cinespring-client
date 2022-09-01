@@ -1,12 +1,21 @@
-<div *ngIf="dataReady">
-    <div class="movie-list">
-        <div *ngFor="let m of movies">
-            <div>
-                <app-movie [movie]="m"></app-movie>
+<div class="" *ngIf="loggedIn">
+    <div *ngIf="dataReady">
+        <div class="popular">
+            <h2>Discover what's popular</h2>
+        </div>
+        <div class="movie-list">
+            <div *ngFor="let m of movies">
+                <div>
+                    <app-movie [movie]="m"></app-movie>
+                </div>
             </div>
         </div>
     </div>
+    <div *ngIf="!dataReady">
+        <p>Loading...</p>
+    </div>
 </div>
-<div *ngIf="!dataReady">
-    <p>Loading...</p>
+<div class="info" *ngIf="!loggedIn">
+    <h1>Welcome to CineSpring application</h1>
 </div>
+

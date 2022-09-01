@@ -13,6 +13,9 @@ import { LoginComponent } from './auth/login/login.component';
 import { ProfileComponent } from './profile/profile.component';
 import { MovieComponent } from './movie/movie/movie.component';
 import { MovieDetailsComponent } from './movie/movie-details/movie-details.component';
+import { WatchlistComponent } from './watchlist/watchlist.component';
+import { WatchedComponent } from './watched/watched.component';
+import { RandomComponent } from './movie/random/random.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +26,10 @@ import { MovieDetailsComponent } from './movie/movie-details/movie-details.compo
     LoginComponent,
     ProfileComponent,
     MovieComponent,
-    MovieDetailsComponent
+    MovieDetailsComponent,
+    WatchlistComponent,
+    WatchedComponent,
+    RandomComponent
   ],
   imports: [
     BrowserModule,
