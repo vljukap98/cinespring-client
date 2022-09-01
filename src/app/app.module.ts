@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { MatSliderModule } from '@angular/material/slider';
 import { AppRoutingModule } from './app-routing.module';
+import { NgxPaginationModule } from 'ngx-pagination';
 import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
@@ -16,6 +17,7 @@ import { MovieDetailsComponent } from './movie/movie-details/movie-details.compo
 import { WatchlistComponent } from './watchlist/watchlist.component';
 import { WatchedComponent } from './watched/watched.component';
 import { RandomComponent } from './movie/random/random.component';
+import { SearchResultComponent } from './search-result/search-result.component';
 
 @NgModule({
   declarations: [
@@ -29,14 +31,16 @@ import { RandomComponent } from './movie/random/random.component';
     MovieDetailsComponent,
     WatchlistComponent,
     WatchedComponent,
-    RandomComponent
+    RandomComponent,
+    SearchResultComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
-    MatSliderModule
+    MatSliderModule,
+    NgxPaginationModule
   ],
   providers: [],
   bootstrap: [AppComponent]

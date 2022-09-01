@@ -16,7 +16,7 @@ const routes: Routes = [
   { path: 'movie-details/:id', component: MovieDetailsComponent },
   { path: 'watchlist', component: WatchlistComponent, canActivate: [AuthGuard] },
   { path: 'watched', component: WatchedComponent, canActivate: [AuthGuard] },
-  { path: 'random', component: RandomComponent, canActivate: [AuthGuard] },
+  { path: 'random', component: RandomComponent },
 
 ];
 

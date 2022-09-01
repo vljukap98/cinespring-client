@@ -1,6 +1,6 @@
 * {
     display: flex;
-    background-color: #21295C;
+    /* background-color: #21295C; */
     text-decoration: none;
     color: #DAD2D8;
     justify-content: center;
@@ -12,6 +12,7 @@
     top: 0;
     width: 100%;
     height: 60px;
+    border-bottom: solid 2px #313969;
 }
 
 .header-item {
@@ -19,7 +20,7 @@
 }
 
 .header-item:hover {
-    border-top: solid 5px #313969;
+    border-top: solid 5px #90cea1;
 }
 
 

@@ -2,6 +2,7 @@
 
 html, body { height: 100%; }
 body { 
-    margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;
+    margin: 0; 
+    font-family: 'Space Mono', monospace;;
     background-color: #0d1c33;
 }

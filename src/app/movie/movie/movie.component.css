@@ -1,8 +1,8 @@
  .movie-component {
     margin: 1rem;
-    border: 1px solid #0d1c33;
+    border: 2px solid #0d1c33;
 }
 
 .movie-component:hover {
-    border: 1px solid #313969;
+    border: 2px solid #90cea1;
 }

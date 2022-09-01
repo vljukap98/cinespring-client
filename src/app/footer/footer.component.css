@@ -1,11 +1,15 @@
 * {
     display: flex;
-    background-color: #21295C;
+    /* background-color: #21295C; */
     text-decoration: none;
     color: #DAD2D8;
     justify-content: center;
     align-items: center;
     padding: 1rem;
+}
+
+.footer {
+    border-top: solid 2px #313969;
 }
 
 .footer img {

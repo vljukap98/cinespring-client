@@ -10,8 +10,9 @@ import { MovieService } from '../movie/movie.service';
 })
 export class HomeComponent implements OnInit {
 
-  loggedIn: boolean = false;
+  p: number = 1;
   movies: Movie[];
+  loggedIn: boolean = false;
   dataReady: boolean = false;
 
   constructor(private movieService: MovieService, private authService: AuthService) { }

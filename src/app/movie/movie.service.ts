@@ -28,7 +28,7 @@ export class MovieService {
   getRandomMovie() {
     return this.http.get(
       this.resourceUrl + '/random',
-      {headers: {'Authorization': 'Bearer ' + this.authService.getToken()}}
+      // {headers: {'Authorization': 'Bearer ' + this.authService.getToken()}}
     )
   }
 }
