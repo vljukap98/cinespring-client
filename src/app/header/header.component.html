@@ -20,4 +20,7 @@
     <div *ngIf="isLoggedIn" class="header-item">
         <a (click)="logout()" routerLink="">Logout</a>
     </div>
+    <div *ngIf="isLoggedIn">
+        <app-search></app-search>
+    </div>
 </div>

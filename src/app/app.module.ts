@@ -17,7 +17,8 @@ import { MovieDetailsComponent } from './movie/movie-details/movie-details.compo
 import { WatchlistComponent } from './watchlist/watchlist.component';
 import { WatchedComponent } from './watched/watched.component';
 import { RandomComponent } from './movie/random/random.component';
-import { SearchResultComponent } from './search-result/search-result.component';
+import { SearchComponent } from './search/search/search.component';
+import { SearchResultComponent } from './search/search-result/search-result.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { SearchResultComponent } from './search-result/search-result.component';
     WatchlistComponent,
     WatchedComponent,
     RandomComponent,
-    SearchResultComponent
+    SearchComponent,
+    SearchResultComponent,
   ],
   imports: [
     BrowserModule,

@@ -15,7 +15,7 @@ export class MovieDetailsComponent implements OnInit, OnDestroy {
   dataReady: boolean = false;
   loggedIn: boolean;
   poster_base_url: string = 'http://image.tmdb.org/t/p/w154';
-  backdrop_path_base_url: string = 'http://image.tmdb.org/t/p/w500';
+  backdrop_path_base_url: string = 'http://image.tmdb.org/t/p/original';
 
   private sub: any;
 

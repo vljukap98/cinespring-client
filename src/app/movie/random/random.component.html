@@ -29,6 +29,9 @@
                 Add to watchlist
             </div>
         </div>
-        <button class="new-random" (click)="getRandomMovie()">Pick another random movie</button>
+        <div (mouseenter)="mouseEnter()" (mouseleave)="mouseLeave()" class="new-random">
+            <img *ngIf="!dieHovered" src = "assets/die.svg" (click)="getRandomMovie()" alt="Generate" width="50"/>
+            <img *ngIf="dieHovered" src = "assets/die-hover.svg" (click)="getRandomMovie()" alt="Generate" width="50"/>
+        </div>
     </div>
 </div>

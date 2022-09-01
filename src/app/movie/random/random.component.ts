@@ -11,8 +11,9 @@ export class RandomComponent implements OnInit {
 
   randomMovie: Movie;
   dataReady: boolean = false;
+  dieHovered: boolean = false;
   poster_base_url: string = 'http://image.tmdb.org/t/p/w154';
-  backdrop_path_base_url: string = 'http://image.tmdb.org/t/p/w500';
+  backdrop_path_base_url: string = 'http://image.tmdb.org/t/p/original';
 
   constructor(private movieService: MovieService) { }
 
@@ -32,6 +33,14 @@ export class RandomComponent implements OnInit {
 
   getMovieGenres() {
     
+  }
+
+  mouseEnter() {
+    this.dieHovered = true;
+  }
+
+  mouseLeave() {
+    this.dieHovered = false;
   }
 
 }
