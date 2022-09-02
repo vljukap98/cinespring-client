@@ -14,17 +14,36 @@
         <div class="description">
             <p>{{ movie.overview }}</p></div>
         <div class="user-controls" *ngIf="loggedIn">
-            <div class="user-control" (click)="addMovieAsFavorite()">
-                <img *ngIf="isMovieFavorite" src = "assets/star.svg" alt="favorite" width="80"/>
-                <img *ngIf="!isMovieFavorite" src = "assets/star-active.svg" alt="favorite" width="80"/>
+            <div class="user-control-buttons">
+                <div class="user-control" (click)="addMovieAsFavorite()">
+                    <img *ngIf="isMovieFavorite" src = "assets/star.svg" alt="favorite" width="80"/>
+                    <img *ngIf="!isMovieFavorite" src = "assets/star-active.svg" alt="favorite" width="80"/>
+                </div>
+                <div class="user-control" (click)="markMovieAsWatched()">
+                    <img *ngIf="isMovieWatched" src = "assets/eye.svg" alt="watch" width="90"/>
+                    <img *ngIf="!isMovieWatched" src = "assets/eye-active.svg" alt="watch" width="90"/>
+                </div>
+                <div class="user-control" (click)="addMovieToWatchlist()">
+                    <img *ngIf="isMovieWatchlisted" src = "assets/bookmark.svg" alt="watchlist" width="50"/>
+                    <img *ngIf="!isMovieWatchlisted" src = "assets/bookmark-active.svg" alt="watchlist" width="50"/>
+                </div>
             </div>
-            <div class="user-control" (click)="markMovieAsWatched()">
-                <img *ngIf="isMovieWatched" src = "assets/eye.svg" alt="watch" width="90"/>
-                <img *ngIf="!isMovieWatched" src = "assets/eye-active.svg" alt="watch" width="90"/>
-            </div>
-            <div class="user-control" (click)="addMovieToWatchlist()">
-                <img *ngIf="isMovieWatchlisted" src = "assets/bookmark.svg" alt="watchlist" width="50"/>
-                <img *ngIf="!isMovieWatchlisted" src = "assets/bookmark-active.svg" alt="watchlist" width="50"/>
+            <div *ngIf="isMovieWatched" class="movie-rating">
+                <p class="movie-rating-element">
+                    SCORE THIS FILM
+                </p> 
+                <mat-slider 
+                    (change)="updateScore($event)"
+                    [(ngModel)]="movieScore" 
+                    min="0" 
+                    max="5" 
+                    step="0.5"
+                    class="movie-rating-element"
+                    >
+                </mat-slider>
+                <p class="movie-rating-element">
+                    {{ movieScore }}
+                </p>
             </div>
         </div>
     </div>

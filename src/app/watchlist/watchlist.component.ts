@@ -9,6 +9,7 @@ import { WatchlistService } from './watchlist.service';
 })
 export class WatchlistComponent implements OnInit {
 
+  p: number = 1;
   watchlistMovies: Movie[];
   dataReady: boolean = false;
 

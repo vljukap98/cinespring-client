@@ -2,7 +2,13 @@
     margin: auto;
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: flex-start;
     padding-top: 5rem;
     width: 50%;
+}
+
+.pagination {
+    margin: auto;
+    display: flex;
+    justify-content: center;
 }

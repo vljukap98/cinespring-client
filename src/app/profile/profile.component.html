@@ -1,8 +1,39 @@
-<div class="profile">
+<div class="profile-welcome">
     <h2>Welcome {{ user }}</h2>
 </div>
-<div class="favorites">
-    <div *ngFor="let f of favorites">
-        <app-movie [movie]="f"></app-movie>
+<div class="profile-header">
+    <div class="profile-header-item">
+        <p 
+            (click)="activateFavorites()" 
+            style="cursor: pointer;"
+            [ngClass]="{'active-header':favoritesActive}"
+        >
+            Favorites
+        </p>
     </div>
+    <div class="profile-header-item">
+        <p 
+            (click)="activateWatched()" 
+            style="cursor: pointer;"
+            [ngClass]="{'active-header':watchedActive}"
+        >
+            Watched
+        </p>
+    </div>
+    <div class="profile-header-item">
+            
+            <p 
+                (click)="activateWatchlist()" 
+                style="cursor: pointer;"
+                [ngClass]="{'active-header':watchlistActive}" 
+            >
+                Watchlist
+            </p>
+
+    </div>
+</div>
+<div class="profile-content">
+    <app-favorite *ngIf="favoritesActive"></app-favorite>
+    <app-watched *ngIf="watchedActive"></app-watched>
+    <app-watchlist *ngIf="watchlistActive"></app-watchlist>
 </div>

@@ -6,6 +6,7 @@ import { WatchlistService } from 'src/app/watchlist/watchlist.service';
 import { FavoriteService } from '../favorite.service';
 import { Movie } from '../movie';
 import { MovieService } from '../movie.service';
+import { MatSliderModule} from '@angular/material/slider'; 
 
 @Component({
   selector: 'app-movie-details',
@@ -16,8 +17,9 @@ export class MovieDetailsComponent implements OnInit, OnDestroy {
 
   id: number;
   movie: Movie;
-  dataReady: boolean = false;
   loggedIn: boolean;
+  movieScore: number;
+  dataReady: boolean = false;
 
   watchedMovies: number[];
   favoriteMovies: number[];
@@ -64,6 +66,11 @@ export class MovieDetailsComponent implements OnInit, OnDestroy {
       this.movie = data;
       this.dataReady = true;
     });
+    this.watchedService.getMovieScore(this.id).subscribe(
+      (data: number) => {
+        this.movieScore = data;
+      }
+    );
   }
 
   initializeUserMovies() {
@@ -113,9 +120,6 @@ export class MovieDetailsComponent implements OnInit, OnDestroy {
           return;
         }
       );
-      //create request for removing the movie from watchlist
-      //set isMovieWatchlisted as false
-      //remove the movie from the watchlisted array
     } else {
       if(this.isMovieWatched) {
         alert("Cannot watchlist movies already marked as watched")
@@ -129,9 +133,6 @@ export class MovieDetailsComponent implements OnInit, OnDestroy {
             return;
           }
         );
-        //create request for adding the movie to watchlist
-        //set isMovieWatchlisted as true
-        //ad the movie to watchlisted array
       }
     }
 
@@ -195,9 +196,6 @@ export class MovieDetailsComponent implements OnInit, OnDestroy {
           return
         }
       );
-      //create request for removing the movie from watched
-      //set isMovieWatched as false
-      //remove the movie from the watched array
     } else {
       if(this.isMovieWatchlisted) {
         this.watchlistService.removeMovieFromWatchlist(this.id).subscribe(
@@ -220,10 +218,15 @@ export class MovieDetailsComponent implements OnInit, OnDestroy {
           return
         }
       );
-      //create request for adding the movie as watched
-      //set isMovieWatched as true
-      //ad the movie to watched array
     }
+  }
+
+  updateScore(event) {
+    this.watchedService.modifyMovieScore(this.id, event.value).subscribe(
+      () => {
+        this.movieScore = event.value;
+      } 
+    );
   }
 
 }

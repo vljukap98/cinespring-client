@@ -1,0 +1,8 @@
+<div *ngIf="dataReady" class="favorites">
+    <div *ngFor="let f of favorites | paginate: { itemsPerPage: 10, currentPage: p }">
+        <app-movie [movie]="f"></app-movie>
+    </div>
+</div>
+<div class="pagination">
+    <pagination-controls (pageChange)="p = $event" class="custom-pagination"></pagination-controls>
+</div>

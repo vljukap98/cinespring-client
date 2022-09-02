@@ -14,6 +14,10 @@ export class ProfileComponent implements OnInit {
   favorites: Movie[];
   dataReady: boolean = false;
 
+  watchedActive: boolean = false;
+  favoritesActive: boolean = true;
+  watchlistActive: boolean = false;
+
 
   constructor(private favoriteService: FavoriteService, private authService: AuthService) { }
 
@@ -33,6 +37,24 @@ export class ProfileComponent implements OnInit {
 
   initializeProfile() {
     this.user = this.authService.getLoggedInUsername();
+  }
+
+  activateFavorites() {
+    this.favoritesActive = true;
+    this.watchedActive = false;
+    this.watchlistActive = false;
+  }
+
+  activateWatched() {
+    this.favoritesActive = false;
+    this.watchedActive = true;
+    this.watchlistActive = false;
+  }
+
+  activateWatchlist() {
+    this.favoritesActive = false;
+    this.watchedActive = false;
+    this.watchlistActive = true;
   }
 
 }

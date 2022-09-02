@@ -9,6 +9,7 @@ import { WatchedService } from './watched.service';
 })
 export class WatchedComponent implements OnInit {
 
+  p: number = 1;
   watchedMovies: Movie[];
   dataReady: boolean = false;
 

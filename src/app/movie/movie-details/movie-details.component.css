@@ -23,10 +23,26 @@
 
 .user-controls {
     display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.user-control-buttons {
+    display: flex;
     flex-direction: row;
     align-items: center;
 }
 
 .user-control {
     margin: 1rem;
+}
+
+.movie-rating {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.movie-rating-element {
+    margin: 0.5rem;
 }

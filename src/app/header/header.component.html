@@ -8,14 +8,11 @@
     <div *ngIf="!isLoggedIn" class="header-item">
         <a routerLink="/login">Login</a>
     </div>
+    <div *ngIf="!isLoggedIn" class="header-item">
+        <a routerLink="/sign-up">Sign Up</a>
+    </div>
     <div *ngIf="isLoggedIn" class="header-item">
         <a routerLink="/profile">Profile</a>
-    </div>
-    <div *ngIf="isLoggedIn" class="header-item">
-        <a routerLink="/watched">Watched</a>
-    </div>
-    <div *ngIf="isLoggedIn" class="header-item">
-        <a routerLink="/watchlist">Watchlist</a>
     </div>
     <div *ngIf="isLoggedIn" class="header-item">
         <a (click)="logout()" routerLink="">Logout</a>

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthService } from 'src/app/auth/auth.service';
 import { Movie } from '../movie';
 import { MovieService } from '../movie.service';
 
@@ -16,7 +17,11 @@ export class RandomComponent implements OnInit {
   poster_base_url: string = 'http://image.tmdb.org/t/p/w154';
   backdrop_path_base_url: string = 'http://image.tmdb.org/t/p/original';
 
-  constructor(private movieService: MovieService, private router: Router) { }
+  constructor(
+    private movieService: MovieService, 
+    private router: Router,
+    private authService: AuthService,
+  ) { }
 
   ngOnInit(): void {
     this.getRandomMovie();
@@ -45,7 +50,8 @@ export class RandomComponent implements OnInit {
   }
 
   openMovieDetails() {
-    this.router.navigate(['/movie-details', this.randomMovie.id]);
+    if(this.authService.isLoggedIn()) {
+      this.router.navigate(['/movie-details', this.randomMovie.id]);
+    }
   }
-
 }

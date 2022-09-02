@@ -4,7 +4,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { MatSliderModule } from '@angular/material/slider';
 import { AppRoutingModule } from './app-routing.module';
 import { NgxPaginationModule } from 'ngx-pagination';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -19,6 +19,8 @@ import { WatchedComponent } from './watched/watched.component';
 import { RandomComponent } from './movie/random/random.component';
 import { SearchComponent } from './search/search/search.component';
 import { SearchResultComponent } from './search/search-result/search-result.component';
+import { SignUpComponent } from './auth/sign-up/sign-up.component';
+import { FavoriteComponent } from './favorite/favorite.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +37,8 @@ import { SearchResultComponent } from './search/search-result/search-result.comp
     RandomComponent,
     SearchComponent,
     SearchResultComponent,
+    SignUpComponent,
+    FavoriteComponent,
   ],
   imports: [
     BrowserModule,
@@ -42,7 +46,8 @@ import { SearchResultComponent } from './search/search-result/search-result.comp
     ReactiveFormsModule,
     HttpClientModule,
     MatSliderModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

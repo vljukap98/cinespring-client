@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { AuthService } from '../auth/auth.service';
 import { Movie } from '../movie/movie';
 import { MovieService } from '../movie/movie.service';
@@ -12,10 +13,14 @@ export class HomeComponent implements OnInit {
 
   p: number = 1;
   movies: Movie[];
-  loggedIn: boolean = false;
+  loggedIn: boolean;
   dataReady: boolean = false;
 
-  constructor(private movieService: MovieService, private authService: AuthService) { }
+  constructor(
+    private movieService: MovieService, 
+    private authService: AuthService,
+    private activatedRoute: ActivatedRoute,
+  ) { }
 
   ngOnInit(): void {
     this.authService.loggedIn.subscribe((data) => this.loggedIn = data)

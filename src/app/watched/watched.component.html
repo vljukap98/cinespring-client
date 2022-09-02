@@ -1,5 +1,8 @@
-<div class="watched">
-    <div *ngFor="let w of watchedMovies">
+<div *ngIf="dataReady" class="watched">
+    <div *ngFor="let w of watchedMovies | paginate: { itemsPerPage: 10, currentPage: p }">
         <app-movie [movie]="w"></app-movie>
     </div>
+</div>
+<div class="pagination">
+    <pagination-controls (pageChange)="p = $event" class="custom-pagination"></pagination-controls>
 </div>

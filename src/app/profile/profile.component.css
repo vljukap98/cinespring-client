@@ -1,14 +1,27 @@
-.profile {
+* {
     color: #DAD2D8;
+}
+
+.profile-welcome {
     text-align: center;
     margin-top: 5rem;
 }
 
-.favorites {
+.profile-header {
     margin: auto;
     display: flex;
-    flex-wrap: wrap;
     justify-content: center;
-    padding-top: 5rem;
-    width: 50%;
+}
+
+.profile-header-item {
+    margin-left: 2rem;
+    margin-right: 2rem;
+}
+
+.profile-header-item p:hover {
+    border-bottom: solid 2px #90cea1;
+}
+
+.active-header {
+    border-bottom: solid 2px #313969;
 }

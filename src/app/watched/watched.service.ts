@@ -46,4 +46,23 @@ export class WatchedService {
       {headers: {'Authorization': 'Bearer ' + this.authService.getToken()}}
     );
   }
+
+  getMovieScore(movieId: number) {
+    return this.http.get(
+      this.resourceUrl + '/stars/' + movieId + '/' + this.authService.getLoggedInUsername(),
+      {headers: {'Authorization': 'Bearer ' + this.authService.getToken()}}
+    )
+  }
+
+  modifyMovieScore(movieId: number, movieScore: number) {
+    return this.http.put(
+      this.resourceUrl + '/modify-stars',
+      {
+        movieId: movieId,
+        username: this.authService.getLoggedInUsername(),
+        stars: movieScore
+      },
+      {headers: {'Authorization': 'Bearer ' + this.authService.getToken()}}
+    );
+  }
 }
