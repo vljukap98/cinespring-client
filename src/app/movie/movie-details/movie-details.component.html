@@ -13,20 +13,18 @@
         </div>
         <div class="description">
             <p>{{ movie.overview }}</p></div>
-        <div class="genres" *ngFor="let g of movie.genres">
-            {{ g.name }}
-        </div>
-        <div class="cast"></div>
-        <div class="crew"></div>
         <div class="user-controls" *ngIf="loggedIn">
-            <div class="fav">
-                Mark as favorite
+            <div class="user-control" (click)="addMovieAsFavorite()">
+                <img *ngIf="isMovieFavorite" src = "assets/star.svg" alt="favorite" width="80"/>
+                <img *ngIf="!isMovieFavorite" src = "assets/star-active.svg" alt="favorite" width="80"/>
             </div>
-            <div class="watched">
-                Mark as Watched
+            <div class="user-control" (click)="markMovieAsWatched()">
+                <img *ngIf="isMovieWatched" src = "assets/eye.svg" alt="watch" width="90"/>
+                <img *ngIf="!isMovieWatched" src = "assets/eye-active.svg" alt="watch" width="90"/>
             </div>
-            <div class="watchlist">
-                Add to watchlist
+            <div class="user-control" (click)="addMovieToWatchlist()">
+                <img *ngIf="isMovieWatchlisted" src = "assets/bookmark.svg" alt="watchlist" width="50"/>
+                <img *ngIf="!isMovieWatchlisted" src = "assets/bookmark-active.svg" alt="watchlist" width="50"/>
             </div>
         </div>
     </div>

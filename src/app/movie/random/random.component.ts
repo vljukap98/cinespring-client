@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Movie } from '../movie';
 import { MovieService } from '../movie.service';
 
@@ -15,7 +16,7 @@ export class RandomComponent implements OnInit {
   poster_base_url: string = 'http://image.tmdb.org/t/p/w154';
   backdrop_path_base_url: string = 'http://image.tmdb.org/t/p/original';
 
-  constructor(private movieService: MovieService) { }
+  constructor(private movieService: MovieService, private router: Router) { }
 
   ngOnInit(): void {
     this.getRandomMovie();
@@ -41,6 +42,10 @@ export class RandomComponent implements OnInit {
 
   mouseLeave() {
     this.dieHovered = false;
+  }
+
+  openMovieDetails() {
+    this.router.navigate(['/movie-details', this.randomMovie.id]);
   }
 
 }

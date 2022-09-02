@@ -1,6 +1,6 @@
 <div *ngIf="dataReady">
     <div class="movie-details">
-        <div class="banner-container">
+        <div class="banner-container" (click)="openMovieDetails()">
             <div class="banner">
                 <img src="{{ backdrop_path_base_url + randomMovie.backdrop_path }}" alt="{{ randomMovie.title }}">
             </div>

@@ -17,4 +17,33 @@ export class WatchedService {
       {headers: {'Authorization': 'Bearer ' + this.authService.getToken()}}
     )
   }
+
+  getWatchedMovieIds() {
+    return this.http.get(
+      this.resourceUrl + '/ids/' + this.authService.getLoggedInUsername(),
+      {headers: {'Authorization': 'Bearer ' + this.authService.getToken()}}
+    );
+  }
+
+  addMovieToWatched(movieId: number) {
+    return this.http.post(
+      this.resourceUrl + '/add',
+      {
+        movieId: movieId,
+        username: this.authService.getLoggedInUsername()
+      },
+      {headers: {'Authorization': 'Bearer ' + this.authService.getToken()}}
+    );
+  }
+
+  removeMovieFromWatched(movieId: number) {
+    return this.http.post(
+      this.resourceUrl + '/remove',
+      {
+        movieId: movieId,
+        username: this.authService.getLoggedInUsername()
+      },
+      {headers: {'Authorization': 'Bearer ' + this.authService.getToken()}}
+    );
+  }
 }

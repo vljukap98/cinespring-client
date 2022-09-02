@@ -1,6 +1,7 @@
  .movie-component {
     margin: 1rem;
     border: 2px solid #0d1c33;
+    border-radius: 5px;
 }
 
 .movie-component:hover {

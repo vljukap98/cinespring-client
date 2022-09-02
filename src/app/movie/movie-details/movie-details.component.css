@@ -20,3 +20,13 @@
     border-radius: 5%;
     border: solid 2px #90cea1;
 }
+
+.user-controls {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.user-control {
+    margin: 1rem;
+}

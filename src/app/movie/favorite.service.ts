@@ -17,4 +17,33 @@ export class FavoriteService {
       {headers: {'Authorization': 'Bearer ' + this.authService.getToken()}}
     );
   }
+
+  getFavoriteMovieIds() {
+    return this.http.get(
+      this.resourceUrl + '/ids/' + this.authService.getLoggedInUsername(),
+      {headers: {'Authorization': 'Bearer ' + this.authService.getToken()}}
+    );
+  }
+
+  addMovieAsFavorite(movieId: number) {
+    return this.http.post(
+      this.resourceUrl + '/add',
+      {
+        movieId: movieId,
+        username: this.authService.getLoggedInUsername()
+      },
+      {headers: {'Authorization': 'Bearer ' + this.authService.getToken()}}
+    );
+  }
+
+  removeMovieFromFavorite(movieId: number) {
+    return this.http.post(
+      this.resourceUrl + '/remove',
+      {
+        movieId: movieId,
+        username: this.authService.getLoggedInUsername()
+      },
+      {headers: {'Authorization': 'Bearer ' + this.authService.getToken()}}
+    );
+  }
 }
