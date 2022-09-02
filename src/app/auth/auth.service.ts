@@ -20,6 +20,9 @@ export class AuthService {
     ).pipe(map((data: any) =>{
       localStorage.setItem('jwt', data.jwt);
       localStorage.setItem('username', data.username);
+      localStorage.setItem('tokenExpires', data.expires)
+
+      console.log(data);
 
       this.loggedIn.emit(true);
 
@@ -35,11 +38,16 @@ export class AuthService {
     return localStorage.getItem('jwt');
   }
 
+  getExpires(): number {
+    return +localStorage.getItem('tokenExpires');
+  }
+
   isLoggedIn() {
     return this.getToken() != null;
   }
 
   logout() {
+    this.loggedIn.emit(false);
     localStorage.removeItem('jwt');
     localStorage.removeItem('username');
   }

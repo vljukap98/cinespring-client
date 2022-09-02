@@ -1,7 +1,7 @@
 <div class="popular-section" *ngIf="loggedIn">
     <div *ngIf="dataReady">
         <div class="popular">
-            <h2>Discover what's popular</h2>
+            <h2>Now popular films</h2>
         </div>
         <div class="movie-list">
             <div *ngFor="let m of movies | paginate: { itemsPerPage: 10, currentPage: p }">
