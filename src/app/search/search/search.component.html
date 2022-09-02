@@ -1,16 +1,24 @@
 <div class="search">
     <form [formGroup]="searchForm" (ngSubmit)="search()">
-        <input 
+        <div class="form-element">
+            <input 
             id="search" 
             name="search" 
             type="text" 
             [formControlName]="'search'" 
-            required>
-        <button 
+            required
+            placeholder="Search"
+            >
+        </div>
+        <div class="form-element" (mouseenter)="mouseEnter()" (mouseleave)="mouseLeave()">
+            <button 
             type="submit" 
             [disabled]="!searchForm.valid"
+            class="form-element"
             >
-            Search
-        </button>
+                <img *ngIf="!(hovered && searchForm.valid)" src = "assets/search.svg" alt="Search" width="30"/>
+                <img *ngIf="hovered && searchForm.valid" src = "assets/search-hover.svg" alt="Search" width="30"/>
+            </button>
+        </div>
     </form>
 </div>

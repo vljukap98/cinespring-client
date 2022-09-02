@@ -1,1 +1,10 @@
-<p>search-result works!</p>
+<div class="search-results" *ngIf="dataReady">
+    <div *ngFor="let r of searchResult | paginate: { itemsPerPage: 10, currentPage: p }">
+        <app-movie *ngIf="r.media_type==='movie' && r.poster_path != undefined" [movie]="r"></app-movie>
+        <div *ngIf="r.media_type==='movie' && r.poster_path != undefined" class="movie-details">
+            <h3>{{ r.title }}</h3>
+            <p>{{ r.overview }}</p>
+        </div>
+    </div>
+    <pagination-controls (pageChange)="p = $event" class="custom-pagination" style="margin: auto"></pagination-controls>
+</div>

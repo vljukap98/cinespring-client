@@ -1,6 +1,5 @@
 * {
     display: flex;
-    /* background-color: #21295C; */
     text-decoration: none;
     color: #DAD2D8;
     justify-content: center;
@@ -8,6 +7,7 @@
 }
 
 .header {
+    background-color: #0d1c33;
     position: fixed;
     top: 0;
     width: 100%;

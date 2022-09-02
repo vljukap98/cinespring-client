@@ -6,6 +6,7 @@ import { HomeComponent } from './home/home.component';
 import { MovieDetailsComponent } from './movie/movie-details/movie-details.component';
 import { RandomComponent } from './movie/random/random.component';
 import { ProfileComponent } from './profile/profile.component';
+import { SearchResultComponent } from './search/search-result/search-result.component';
 import { WatchedComponent } from './watched/watched.component';
 import { WatchlistComponent } from './watchlist/watchlist.component';
 
@@ -16,6 +17,7 @@ const routes: Routes = [
   { path: 'movie-details/:id', component: MovieDetailsComponent },
   { path: 'watchlist', component: WatchlistComponent, canActivate: [AuthGuard] },
   { path: 'watched', component: WatchedComponent, canActivate: [AuthGuard] },
+  { path: 'search-result/:searchQuery', component: SearchResultComponent, canActivate: [AuthGuard] },
   { path: 'random', component: RandomComponent },
 
 ];

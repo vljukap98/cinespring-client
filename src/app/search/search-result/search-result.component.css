@@ -1,0 +1,23 @@
+* {
+    color: #DAD2D8;
+}
+
+.search-results div {
+    display: flex;
+    flex-direction: row;
+}
+
+.search-results .movie-details {
+    display: flex;
+    flex-direction: column;
+}
+
+.search-results {
+    width: 50%;
+    margin-top: 5rem;
+    margin-right: auto;
+    margin-left: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
