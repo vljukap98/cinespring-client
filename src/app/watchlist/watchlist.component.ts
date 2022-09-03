@@ -11,7 +11,8 @@ export class WatchlistComponent implements OnInit {
 
   p: number = 1;
   watchlistMovies: Movie[];
-  dataReady: boolean = false;
+  dataReady: boolean;
+  listFull: boolean = false;
 
   constructor(private watchlistService: WatchlistService) { }
 
@@ -23,7 +24,14 @@ export class WatchlistComponent implements OnInit {
     this.watchlistService.getWatchlist().subscribe((data: any) => {
       this.watchlistMovies = data;
       this.dataReady = true;
-    })
+
+      if(this.watchlistMovies.length > 0)
+        this.listFull = true;
+      else 
+        this.listFull = false;
+    }, (error) => {
+      this.listFull = false;
+    });
   }
 
 }

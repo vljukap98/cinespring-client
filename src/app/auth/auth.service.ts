@@ -9,10 +9,10 @@ export class AuthService {
 
   @Output() loggedIn: EventEmitter<boolean> = new EventEmitter();
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(private http: HttpClient) { }
 
   login(username: string, password: string): Observable<boolean> {
-    return this.httpClient.post('http://localhost:8080/auth/authenticate',
+    return this.http.post('http://localhost:8080/auth/authenticate',
       {
         username: username,
         password: password
@@ -28,6 +28,17 @@ export class AuthService {
 
       return true;
     }));
+  }
+
+  signup(email: string, username: string, password: string) {
+    return this.http.post(
+      'http://localhost:8080/auth/register',
+      {
+        username: username,
+        password: password,
+        email: email
+      }
+    );
   }
 
   getLoggedInUsername() {

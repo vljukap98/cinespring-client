@@ -11,7 +11,8 @@ export class WatchedComponent implements OnInit {
 
   p: number = 1;
   watchedMovies: Movie[];
-  dataReady: boolean = false;
+  dataReady: boolean;
+  listFull: boolean = false;
 
   constructor(private watchedService: WatchedService) { }
 
@@ -23,6 +24,13 @@ export class WatchedComponent implements OnInit {
     this.watchedService.getWatchedMovies().subscribe((data: any) => {
       this.watchedMovies = data;
       this.dataReady = true;
-    })
+
+      if(this.watchedMovies.length > 0)
+        this.listFull = true;
+      else 
+        this.listFull = false;
+    }, (error) => {
+      this.listFull = false;
+    });
   }
 }

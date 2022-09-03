@@ -1,8 +1,12 @@
+<div *ngIf="listFull === false" class="info">
+    <h3>You haven't marked any film as favorite</h3>
+    <p><a routerLink="">Discover</a> movies and add them to your list</p>
+</div>
 <div *ngIf="dataReady" class="favorites">
     <div *ngFor="let f of favorites | paginate: { itemsPerPage: 10, currentPage: p }">
         <app-movie [movie]="f"></app-movie>
     </div>
 </div>
-<div class="pagination">
+<div *ngIf="listFull" class="pagination">
     <pagination-controls (pageChange)="p = $event" class="custom-pagination"></pagination-controls>
 </div>

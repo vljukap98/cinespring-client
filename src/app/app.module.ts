@@ -21,6 +21,7 @@ import { SearchComponent } from './search/search/search.component';
 import { SearchResultComponent } from './search/search-result/search-result.component';
 import { SignUpComponent } from './auth/sign-up/sign-up.component';
 import { FavoriteComponent } from './favorite/favorite.component';
+import { RegisterSuccessComponent } from './auth/register-success/register-success.component';
 
 @NgModule({
   declarations: [
@@ -39,6 +40,7 @@ import { FavoriteComponent } from './favorite/favorite.component';
     SearchResultComponent,
     SignUpComponent,
     FavoriteComponent,
+    RegisterSuccessComponent,
   ],
   imports: [
     BrowserModule,
