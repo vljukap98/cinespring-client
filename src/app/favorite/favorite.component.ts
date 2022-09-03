@@ -11,7 +11,7 @@ export class FavoriteComponent implements OnInit {
 
   p: number = 1;
   favorites: Movie[];
-  dataReady: boolean;
+  dataReady: boolean = true;
   listFull: boolean = false;
 
   constructor(private favoriteService: FavoriteService) { }
@@ -30,8 +30,6 @@ export class FavoriteComponent implements OnInit {
           this.listFull = true;
         else 
           this.listFull = false;
-      }, (error) => {
-        this.listFull = false;
-    });
+      });
   }
 }
