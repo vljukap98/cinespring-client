@@ -8,11 +8,21 @@
         <div class="title">
             <h2>{{ movie.title }}</h2>
         </div>
-        <div class="original-title">
-            <h3>{{ movie.original_title }}</h3>
+        <div class="movie-data">
+            <div class="movie-genres">
+                <div class="genre">
+                    <p *ngFor="let g of genres">{{ g.name }}</p>
+                </div>
+            </div>
+            <div class="movie-desc">
+                <div class="original-title">
+                    <h3>{{ movie.original_title }}</h3>
+                </div>
+                <div class="description">
+                    <p>{{ movie.overview }}</p>
+                </div>
+            </div>
         </div>
-        <div class="description">
-            <p>{{ movie.overview }}</p></div>
         <div class="user-controls" *ngIf="loggedIn">
             <div class="user-control-buttons">
                 <div class="user-control" (click)="addMovieAsFavorite()">

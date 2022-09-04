@@ -31,14 +31,7 @@ export class RandomComponent implements OnInit {
     this.movieService.getRandomMovie().subscribe((data: any) => {
       this.randomMovie = data;
       this.dataReady = true;
-      if(data.genres == null) {
-        this.getMovieGenres();
-      }
     });
-  }
-
-  getMovieGenres() {
-    
   }
 
   mouseEnter() {

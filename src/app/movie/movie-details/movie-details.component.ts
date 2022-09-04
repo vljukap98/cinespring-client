@@ -18,9 +18,10 @@ export class MovieDetailsComponent implements OnInit, OnDestroy {
   id: number;
   movie: Movie;
   loggedIn: boolean;
-  movieScore: number;
+  movieScore: number = 0;
   dataReady: boolean = false;
 
+  genres: [];
   watchedMovies: number[];
   favoriteMovies: number[];
   watchlistMovies: number[];
@@ -47,6 +48,7 @@ export class MovieDetailsComponent implements OnInit, OnDestroy {
     this.loadMovieId();
     this.loadMovieData();
     this.initializeUserMovies();
+    this.initializeCrewCast();
 
     this.loggedIn = this.authService.isLoggedIn();
   }
@@ -69,6 +71,15 @@ export class MovieDetailsComponent implements OnInit, OnDestroy {
     this.watchedService.getMovieScore(this.id).subscribe(
       (data: number) => {
         this.movieScore = data;
+      }
+    );
+  }
+
+  initializeCrewCast() {
+    this.movieService.getMovieGenres(this.id).subscribe(
+      (data: any) => {
+        this.genres = data;
+        console.log(this.genres);
       }
     );
   }
@@ -187,13 +198,22 @@ export class MovieDetailsComponent implements OnInit, OnDestroy {
 
   markMovieAsWatched() {
     if(this.isMovieWatched){
+      if(this.isMovieFavorite) {
+        this.favoriteService.removeMovieFromFavorite(this.id).subscribe(() => {
+          this.favoriteMovies.splice(this.id);
+          this.isMovieFavorite = false;
+        }, (error) => {
+          return;
+        });
+      }
       this.watchedService.removeMovieFromWatched(this.id).subscribe(
         () => {
           this.watchedMovies.splice(this.id);
           this.isMovieWatched = false;
+          this.movieScore = 0;
         },
         (error) => {
-          return
+          return;
         }
       );
     } else {

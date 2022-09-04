@@ -22,8 +22,6 @@ export class AuthService {
       localStorage.setItem('username', data.username);
       localStorage.setItem('tokenExpires', data.expires)
 
-      console.log(data);
-
       this.loggedIn.emit(true);
 
       return true;
@@ -61,5 +59,6 @@ export class AuthService {
     this.loggedIn.emit(false);
     localStorage.removeItem('jwt');
     localStorage.removeItem('username');
+    localStorage.removeItem('tokenExpires');
   }
 }

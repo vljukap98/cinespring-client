@@ -13,22 +13,6 @@
         </div>
         <div class="description">
             <p>{{ randomMovie.overview }}</p></div>
-        <div class="genres" *ngFor="let g of randomMovie.genres">
-            {{ g.name }}
-        </div>
-        <div class="cast"></div>
-        <div class="crew"></div>
-        <div class="user-controls" *ngIf="loggedIn">
-            <div class="fav">
-                Mark as favorite
-            </div>
-            <div class="watched">
-                Mark as Watched
-            </div>
-            <div class="watchlist">
-                Add to watchlist
-            </div>
-        </div>
         <div (mouseenter)="mouseEnter()" (mouseleave)="mouseLeave()" class="new-random">
             <img *ngIf="!dieHovered" src = "assets/die.svg" (click)="getRandomMovie()" alt="Generate" width="50"/>
             <img *ngIf="dieHovered" src = "assets/die-hover.svg" (click)="getRandomMovie()" alt="Generate" width="50"/>
