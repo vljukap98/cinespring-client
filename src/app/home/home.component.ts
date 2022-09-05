@@ -19,7 +19,6 @@ export class HomeComponent implements OnInit {
   constructor(
     private movieService: MovieService, 
     private authService: AuthService,
-    private activatedRoute: ActivatedRoute,
   ) { }
 
   ngOnInit(): void {
@@ -31,7 +30,7 @@ export class HomeComponent implements OnInit {
   }
 
   initiatePopularMovies() {
-    this.movieService.getPopularMovies(1).subscribe((data: any) => {
+    this.movieService.getPopularMovies(this.p).subscribe((data: any) => {
       this.movies = data.results;
       this.dataReady = true;
     })

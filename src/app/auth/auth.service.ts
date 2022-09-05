@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { EventEmitter, Injectable, Output } from '@angular/core';
+import { environment } from 'src/environments/environment.local';
 import { map, Observable } from 'rxjs';
 
 @Injectable({
@@ -12,7 +13,8 @@ export class AuthService {
   constructor(private http: HttpClient) { }
 
   login(username: string, password: string): Observable<boolean> {
-    return this.http.post('http://localhost:8080/auth/authenticate',
+    return this.http.post(
+      environment.authApiUrl + '/authenticate',
       {
         username: username,
         password: password
@@ -30,7 +32,7 @@ export class AuthService {
 
   signup(email: string, username: string, password: string) {
     return this.http.post(
-      'http://localhost:8080/auth/register',
+      environment.authApiUrl + '/register',
       {
         username: username,
         password: password,

@@ -1,33 +1,32 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { AuthService } from '../auth/auth.service';
+import { environment } from 'src/environments/environment.local';
 
 @Injectable({
   providedIn: 'root'
 })
 export class WatchedService {
 
-  resourceUrl: string = 'http://localhost:8080/watched';
-
   constructor(private http: HttpClient, private authService: AuthService) { }
 
   getWatchedMovies(){
     return this.http.get(
-      this.resourceUrl + '/' + this.authService.getLoggedInUsername(),
+      environment.watchedApiUrl + '/' + this.authService.getLoggedInUsername(),
       {headers: {'Authorization': 'Bearer ' + this.authService.getToken()}}
     )
   }
 
   getWatchedMovieIds() {
     return this.http.get(
-      this.resourceUrl + '/ids/' + this.authService.getLoggedInUsername(),
+      environment.watchedApiUrl + '/ids/' + this.authService.getLoggedInUsername(),
       {headers: {'Authorization': 'Bearer ' + this.authService.getToken()}}
     );
   }
 
   addMovieToWatched(movieId: number) {
     return this.http.post(
-      this.resourceUrl + '/add',
+      environment.watchedApiUrl + '/add',
       {
         movieId: movieId,
         username: this.authService.getLoggedInUsername()
@@ -38,7 +37,7 @@ export class WatchedService {
 
   removeMovieFromWatched(movieId: number) {
     return this.http.post(
-      this.resourceUrl + '/remove',
+      environment.watchedApiUrl + '/remove',
       {
         movieId: movieId,
         username: this.authService.getLoggedInUsername()
@@ -49,14 +48,14 @@ export class WatchedService {
 
   getMovieScore(movieId: number) {
     return this.http.get(
-      this.resourceUrl + '/stars/' + movieId + '/' + this.authService.getLoggedInUsername(),
+      environment.watchedApiUrl + '/stars/' + movieId + '/' + this.authService.getLoggedInUsername(),
       {headers: {'Authorization': 'Bearer ' + this.authService.getToken()}}
     )
   }
 
   modifyMovieScore(movieId: number, movieScore: number) {
     return this.http.put(
-      this.resourceUrl + '/modify-stars',
+      environment.watchedApiUrl + '/modify-stars',
       {
         movieId: movieId,
         username: this.authService.getLoggedInUsername(),

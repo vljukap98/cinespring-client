@@ -1,33 +1,32 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { AuthService } from '../auth/auth.service';
+import { environment } from 'src/environments/environment.local';
 
 @Injectable({
   providedIn: 'root'
 })
 export class FavoriteService {
 
-  resourceUrl: string = "http://localhost:8080/favorites";
-
   constructor(private http: HttpClient, private authService: AuthService) { }
 
   getFavoriteMovies() {
     return this.http.get(
-      this.resourceUrl + '/' + this.authService.getLoggedInUsername(),
+      environment.favoriteApiUrl + '/' + this.authService.getLoggedInUsername(),
       {headers: {'Authorization': 'Bearer ' + this.authService.getToken()}}
     );
   }
 
   getFavoriteMovieIds() {
     return this.http.get(
-      this.resourceUrl + '/ids/' + this.authService.getLoggedInUsername(),
+      environment.favoriteApiUrl + '/ids/' + this.authService.getLoggedInUsername(),
       {headers: {'Authorization': 'Bearer ' + this.authService.getToken()}}
     );
   }
 
   addMovieAsFavorite(movieId: number) {
     return this.http.post(
-      this.resourceUrl + '/add',
+      environment.favoriteApiUrl + '/add',
       {
         movieId: movieId,
         username: this.authService.getLoggedInUsername()
@@ -38,7 +37,7 @@ export class FavoriteService {
 
   removeMovieFromFavorite(movieId: number) {
     return this.http.post(
-      this.resourceUrl + '/remove',
+      environment.favoriteApiUrl + '/remove',
       {
         movieId: movieId,
         username: this.authService.getLoggedInUsername()

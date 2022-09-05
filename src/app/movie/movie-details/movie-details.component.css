@@ -47,6 +47,7 @@
     max-width: 50%;
     display: flex;
     flex-direction: row;
+    border-bottom: 1px solid #313969;
 }
 
 .movie-desc {
@@ -59,4 +60,22 @@
 .genre {
     margin-right: 5rem;
     text-align: start;
+}
+
+.score {
+    border-bottom: 1px solid #313969;
+    margin-top: 2rem;
+}
+
+.score-title {
+    text-align: center;
+}
+
+.movie-tmdb-score {
+    display: flex;
+    flex-direction: row;
+}
+
+.movie-tmdb-score img {
+    margin: 1rem;
 }

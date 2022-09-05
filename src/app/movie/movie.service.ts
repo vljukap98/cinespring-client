@@ -1,39 +1,38 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { AuthService } from '../auth/auth.service';
+import { environment } from 'src/environments/environment.local';
 
 @Injectable({
   providedIn: 'root'
 })
 export class MovieService {
 
-  resourceUrl: string = "http://localhost:8080/movie";
-
   constructor(private http: HttpClient, private authService: AuthService) { }
 
   getMovieById(id: number) {
     return this.http.get(
-      this.resourceUrl + "/" + id,
+      environment.movieApiUrl + "/" + id,
       {headers: {'Authorization': 'Bearer ' + this.authService.getToken()}}
     )
   }
 
   getPopularMovies(page: number) {
     return this.http.get(
-      this.resourceUrl + '/popular/' + page,
+      environment.movieApiUrl + '/popular/' + page,
       {headers: {'Authorization': 'Bearer ' + this.authService.getToken()}}
     )
   }
 
   getRandomMovie() {
     return this.http.get(
-      this.resourceUrl + '/random',
+      environment.movieApiUrl + '/random',
     )
   }
 
   getMovieGenres(id: number) {
     return this.http.get(
-      this.resourceUrl + '/genre/' + id,
+      environment.movieApiUrl + '/genre/' + id,
       {headers: {'Authorization': 'Bearer ' + this.authService.getToken()}}
     )
   }
