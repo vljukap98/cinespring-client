@@ -1,8 +1,14 @@
 .sign-up {
+    display: flex;
+    flex-direction: row;
+}
+
+.sign-up-form {
     color: #DAD2D8;
     display: grid;
     grid-template-columns: auto ;
-    margin-top: 5rem;
+    margin-top: 15rem;
+    margin-left: 5rem;
 }
 
 .form-item {
@@ -14,4 +20,13 @@
 
 .form-item {
     margin: 1rem;
+}
+
+.main-banner {
+    margin-top: 5rem;
+    padding-left: 10rem;
+}
+
+.main-banner img {
+    max-width: 80%;
 }

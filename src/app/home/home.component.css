@@ -7,10 +7,24 @@
 }
 
 .info {
+    display: flex;
+    flex-direction: row;
     margin-top: 6rem;
     margin-left: auto;
     margin-right: auto;
     width: 80%;
+}
+
+.info p {
+    margin-top: 6rem;
+}
+
+.main-banner {
+    padding-left: 10rem;
+}
+
+.main-banner img {
+    max-width: 90%;
 }
 
 .movie-list {
@@ -19,9 +33,5 @@
     flex-wrap: wrap;
     justify-content: center;
     margin-top: 1rem;
-    width: 50%;
-}
-
-.custom-pagination:ng-deep {
-    color: #DAD2D8;
+    width: 55%;
 }

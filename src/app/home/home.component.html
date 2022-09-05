@@ -15,6 +15,13 @@
     </div>
 </div>
 <div class="info" *ngIf="!loggedIn">
-    <h1>Welcome to CineSpring application</h1>
+    <div class="main-info">
+        <h1>Welcome to CineSpring application</h1>
+        <p><a routerLink="/sign-up">Create account</a> and start recording your seen movies</p>
+        <p>Not sure which movie to watch next? <a routerLink="/random">Find a random one</a></p>
+    </div>
+    <div class="main-banner">
+        <img src = "assets/main-banner.svg" alt="main banner"/>
+    </div>
 </div>
 

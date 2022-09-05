@@ -14,7 +14,7 @@ export class SearchResultComponent implements OnInit, OnDestroy {
   private sub: any;
 
   p: number = 1;
-  searchResult: [];
+  searchResult: any[] = [];
   searchQuery: string;
   dataReady: boolean = false;
 
@@ -35,14 +35,22 @@ export class SearchResultComponent implements OnInit, OnDestroy {
       (params) => {
         this.searchQuery = params.searchQuery;
         this.loadSearchResult();
+
+        this.searchResult = [];
       }
     );
   }
 
   loadSearchResult() {
-    this.searchService.search(this.searchQuery, 1).subscribe((data: Search) => {
-      this.searchResult = data.results;
+    this.searchService.search(this.searchQuery, this.p).subscribe((data: Search) => {
+      const result = data.results;
       this.dataReady = true;
+
+      result.forEach((sr: any) => {
+        if(sr.media_type === 'movie'){
+          this.searchResult.push(sr);
+        }
+      })
     }); 
   }
 
