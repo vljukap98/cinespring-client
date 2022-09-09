@@ -34,7 +34,7 @@ export class SignUpComponent implements OnInit {
       (error) => {
         alert("Form input validation failed.\n" +
         "Please check if your input meets the requirements:\n" +
-        "Username - 8-20 characters, no repeating '.' or '_' characters" +
+        "Username - 8-20 characters, no repeating '.' or '_' characters\n" +
         "Password - min. 8 characters, min 1 case letter, min 1 number, min 1 spec. character");
       }
     );
