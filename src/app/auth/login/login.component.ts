@@ -32,10 +32,10 @@ export class LoginComponent implements OnInit {
       }
     },
     (error) => {
-      if(error.error.message == undefined)
-        alert("Server error")
-      else 
-        alert(error.error.message);
+      console.log(error)
+      alert("Please check your input." +
+      "If you haven't confirmed your account, please check your email."+
+      "Otherwise you won't be able to log in.")
     });
   }
 
