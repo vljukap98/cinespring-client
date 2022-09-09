@@ -33,8 +33,8 @@ export class LoginComponent implements OnInit {
     },
     (error) => {
       console.log(error)
-      alert("Please check your input." +
-      "If you haven't confirmed your account, please check your email."+
+      alert("Please check your input.\n" +
+      "If you haven't confirmed your account, please check your email.\n"+
       "Otherwise you won't be able to log in.")
     });
   }
